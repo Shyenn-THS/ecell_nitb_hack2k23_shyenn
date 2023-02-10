@@ -1,7 +1,19 @@
 const navLinks = [
   {
-    name: 'About',
-    href: '/about',
+    name: 'Add Food',
+    href: '/add-food',
+  },
+  {
+    name: 'Diet History',
+    href: '/diet-history',
+  },
+  {
+    name: 'Ask Experts',
+    href: '/ask',
+  },
+  {
+    name: 'Profile',
+    href: '/profile',
   },
 ];
 
