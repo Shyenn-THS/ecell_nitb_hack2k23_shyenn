@@ -36,8 +36,8 @@ def predict_class(model, images, show = True):
 
 #add the images you want to predict into a list (these are in the WD)
 images = []
-images.append('caesar.jpg') 
-images.append('beet2.jpg')
+# images.append('134.jpg') 
+images.append('roti.jpg')
 
 
 print("PREDICTIONS BASED ON PICTURES UPLOADED")

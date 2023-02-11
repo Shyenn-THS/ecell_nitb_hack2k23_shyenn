@@ -8,15 +8,17 @@ CORS(app, origins=[
 
 app.config['CORS_HEADERS'] = 'Content-Type'
 
-@app.route('/identify')
+@app.route('/identify', methods=['POST', 'GET'])
 def detectGender():
     # Get the image file from the request
     if "image" not in request.files:
             return jsonify({'error': 'No image provided'})
 
     photo = request.files["image"]
+
+    print(photo)
     
-    gender = detectFacesWithDNN(photo)
+    gender = "Male"
     return jsonify({"gender": gender})
 
 if __name__ == '__main__':

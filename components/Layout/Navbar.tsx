@@ -6,24 +6,16 @@ import { signIn, signOut, useSession } from 'next-auth/react';
 import jsCookie from 'js-cookie';
 import { UIContext } from '@/context/UIContext';
 import { BsFillSunFill, BsMoonFill } from 'react-icons/bs';
-
-// import {
-//   useAddress,
-//   useContract,
-//   useDisconnect,
-//   useMetamask,
-// } from '@thirdweb-dev/react';
+import classNames from 'classnames';
+import { useRouter } from 'next/router';
 
 type Props = {};
 
 const Navbar = (props: Props) => {
-  // const connectWithMetamask = useMetamask();
-  // const disconnect = useDisconnect();
-  // const address = useAddress();
-
   const { state, dispatch } = useContext(UIContext);
   const { darkMode, openDrawer } = state;
   const { data: session } = useSession();
+  const router = useRouter();
 
   const darkModeChangeHandler = () => {
     dispatch({ type: darkMode ? 'DARK_MODE_OFF' : 'DARK_MODE_ON' });
@@ -44,6 +36,8 @@ const Navbar = (props: Props) => {
     return () => {};
   }, [darkMode]);
 
+  const [selected, setSelected] = useState(0);
+
   return (
     <div>
       <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
@@ -57,17 +51,24 @@ const Navbar = (props: Props) => {
               height={300}
             />
           </Link>
-          <ul className="items-stretch hidden space-x-3 lg:flex">
+          <ul className="items-stretch hidden space-x-6 lg:flex">
             {navLinks.map((link, idx) => {
               const { name, href } = link;
               return (
-                <Link
-                  className="flex items-center px-4 -mb-1 dark:border-transparent dark:text-green-400"
+                <button
+                  className={classNames(
+                    selected === idx
+                      ? 'text-green-800 underline underline-offset-2'
+                      : 'text-white'
+                  )}
+                  onClick={() => {
+                    setSelected(idx);
+                    router.push(`/${href}`);
+                  }}
                   key={idx}
-                  href={href}
                 >
                   {name}
-                </Link>
+                </button>
               );
             })}
           </ul>

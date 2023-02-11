@@ -1,11 +1,11 @@
 const navLinks = [
   {
-    name: 'Add Food',
+    name: 'Add Food Intake',
     href: '/add-food',
   },
   {
-    name: 'Diet History',
-    href: '/diet-history',
+    name: 'Food Intake History',
+    href: '/food-intake-history',
   },
   {
     name: 'Ask Experts',
@@ -15,13 +15,21 @@ const navLinks = [
     name: 'Profile',
     href: '/profile',
   },
+  {
+    name: 'Report',
+    href: '/report',
+  },
 ];
 
 const footer = {
   quickLink: [
     {
-      name: 'About',
-      href: '/about',
+      name: 'For Experts',
+      href: '/experts',
+    },
+    {
+      name: 'Your Profile',
+      href: '/profile',
     },
   ],
   others: [
@@ -29,7 +37,13 @@ const footer = {
       name: 'About',
       href: '/about',
     },
+    {
+      name: 'Report',
+      href: '/about',
+    },
   ],
 };
 
-export { navLinks, footer };
+const socialLinks = ['https://github.com/Shyenn-THS', 'http://shyenn.club/'];
+
+export { navLinks, footer, socialLinks };

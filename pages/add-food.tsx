@@ -8,25 +8,25 @@ const AddImage = () => {
   const [stream, setStream] = useState<MediaStream>();
   const [mounted, setMounted] = useState<Boolean>(false);
 
+  const startStream = async () => {
+    if (!videoRef.current) return;
+    try {
+      const mediaStream = await navigator.mediaDevices.getUserMedia({
+        video: true,
+        audio: false,
+      });
+      setStream(mediaStream);
+      videoRef.current.srcObject = mediaStream;
+      videoRef.current.play();
+    } catch (error) {
+      console.error('Error accessing webcam', error);
+    }
+  };
+
   useEffect(() => {
     if (!hasCamera) {
       return;
     }
-
-    const startStream = async () => {
-      if (!videoRef.current) return;
-      try {
-        const mediaStream = await navigator.mediaDevices.getUserMedia({
-          video: true,
-          audio: false,
-        });
-        setStream(mediaStream);
-        videoRef.current.srcObject = mediaStream;
-        videoRef.current.play();
-      } catch (error) {
-        console.error('Error accessing webcam', error);
-      }
-    };
 
     startStream();
 
@@ -90,6 +90,10 @@ const AddImage = () => {
               width: 700,
               height: 700,
             }}
+            controls={false}
+            autoPlay={true}
+            loop={true}
+            src="/assets/mp4/food.mp4"
           />
         ) : null}
       </div>
@@ -97,14 +101,14 @@ const AddImage = () => {
         <Image
           width={500}
           height={500}
-          src={src ? src : ''}
+          src={src ? src : '/assets/svg/Add Food.svg'}
           alt="Captured from webcam"
         />
         <div className="flex items-center py-6 space-x-4">
           {mounted && navigator.mediaDevices ? (
             <button
               className="btn btn-success whitespace-nowrap"
-              onClick={() => setHasCamera(true)}
+              onClick={() => (hasCamera ? startStream() : setHasCamera(true))}
             >
               Start Capture
             </button>
