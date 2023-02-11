@@ -2,10 +2,11 @@ import Image from 'next/image';
 import React, { useState, useRef, useEffect } from 'react';
 
 const AddImage = () => {
-  const [src, setSrc] = useState(null);
-  const videoRef = useRef(null);
+  const [src, setSrc] = useState<string>();
+  const videoRef = useRef<HTMLVideoElement>();
   const [hasCamera, setHasCamera] = useState(false);
-  const [stream, setStream] = useState(null);
+  const [stream, setStream] = useState<MediaStream>();
+  const [mounted, setMounted] = useState<Boolean>(false);
 
   useEffect(() => {
     if (!hasCamera) {
@@ -13,6 +14,7 @@ const AddImage = () => {
     }
 
     const startStream = async () => {
+      if (!videoRef.current) return;
       try {
         const mediaStream = await navigator.mediaDevices.getUserMedia({
           video: true,
@@ -25,6 +27,7 @@ const AddImage = () => {
         console.error('Error accessing webcam', error);
       }
     };
+
     startStream();
 
     return () => {
@@ -36,11 +39,25 @@ const AddImage = () => {
     };
   }, [hasCamera]);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const stopCapture = () => {
+    if (stream) {
+      stream.getTracks().forEach((track) => {
+        track.stop();
+      });
+    }
+  };
+
   const captureImage = () => {
-    const canvas = document.createElement('canvas');
+    if (!videoRef.current) return;
+    const canvas: HTMLCanvasElement = document.createElement('canvas');
     canvas.width = videoRef.current.videoWidth;
     canvas.height = videoRef.current.videoHeight;
-    canvas.getContext('2d').drawImage(videoRef.current, 0, 0);
+    canvas?.getContext('2d')?.drawImage(videoRef.current, 0, 0);
+    if (canvas == null) throw new Error('Could not get canvas');
     setSrc(canvas.toDataURL('image/png'));
   };
 
@@ -66,17 +83,15 @@ const AddImage = () => {
   return (
     <div className="flex items-center">
       <div className="px-10">
-        {hasCamera && (
-          <>
-            <video
-              ref={videoRef}
-              style={{
-                width: 700,
-                height: 700,
-              }}
-            />
-          </>
-        )}
+        {hasCamera ? (
+          <video
+            ref={videoRef}
+            style={{
+              width: 700,
+              height: 700,
+            }}
+          />
+        ) : null}
       </div>
       <div className="px-10 flex flex-col justify-center items-center ">
         <Image
@@ -85,25 +100,36 @@ const AddImage = () => {
           src={src ? src : ''}
           alt="Captured from webcam"
         />
-        <div className="flex items-center py-6 space-x-8">
-          {typeof navigator !== 'undefined' && navigator.mediaDevices && (
+        <div className="flex items-center py-6 space-x-4">
+          {mounted && navigator.mediaDevices ? (
             <button
-              className="btn btn-success"
+              className="btn btn-success whitespace-nowrap"
               onClick={() => setHasCamera(true)}
             >
-              Enable camera
+              Start Capture
             </button>
-          )}
-          <button onClick={captureImage} className="btn btn-success">
+          ) : null}
+          <button
+            onClick={captureImage}
+            className="btn btn-success whitespace-nowrap"
+          >
             Capture Image
           </button>
+          <button
+            onClick={stopCapture}
+            className="btn whitespace-nowrap btn-error"
+          >
+            Stop Capture
+          </button>
           {src && (
-            <button className="btn btn-success" onClick={sendImage}>
+            <button
+              className="btn btn-success whitespace-nowrap"
+              onClick={sendImage}
+            >
               Submit
             </button>
           )}
         </div>
-        {/* {src ? <img src={src} alt="Captured from webcam" /> : null} */}
       </div>
     </div>
   );
