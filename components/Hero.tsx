@@ -33,7 +33,7 @@ const Hero = (props: Props) => {
               href="/add-food"
               className="px-8 py-3 text-lg font-semibold rounded dark:bg-green-400 dark:text-gray-900"
             >
-              Add Food
+              Add Food Intake
             </Link>
             <Link
               href="/ask"

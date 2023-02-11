@@ -139,6 +139,7 @@ const AddImage = () => {
       const itemReportId = await addDoc(collection(db, 'itemReport'), {
         ...dishSnap.data(),
         image: dishImageUrl,
+        date: new Date().toISOString(),
       });
 
       const userRef = doc(db, 'users', session?.user.email);

@@ -41,13 +41,14 @@ train_generator = train_datagen.flow_from_directory(
     train_data_dir,
     target_size=(img_height, img_width),
     batch_size=batch_size,
-    class_mode='categorical')
+    class_mode='categorical',
+    randome_state='42')
 
 validation_generator = test_datagen.flow_from_directory(
     validation_data_dir,
     target_size=(img_height, img_width),
     batch_size=batch_size,
-    class_mode='categorical')
+    class_mode='categorical', randome_state='42')
 
 
 mbv2 = MobileNetV2(weights='imagenet', include_top=False, input_shape = (299,299,3))
