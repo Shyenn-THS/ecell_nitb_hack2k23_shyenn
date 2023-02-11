@@ -1,3 +1,5 @@
+import ErrorMessage from '@/components/ErrorMessage';
+import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React from 'react';
 
@@ -24,6 +26,17 @@ const TimelineCard = () => {
 };
 
 const TimelineDay = () => {
+  const { data: session } = useSession();
+
+  if (!session) {
+    return (
+      <ErrorMessage
+        action={{ name: 'Sign In', func: signIn }}
+        message="Please Login to View Food Intake History"
+      />
+    );
+  }
+
   return (
     <section className="dark:bg-gray-800 dark:text-gray-100">
       <div className="container max-w-5xl px-4 py-12 mx-auto">

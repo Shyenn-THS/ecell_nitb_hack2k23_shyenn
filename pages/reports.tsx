@@ -4,18 +4,19 @@ import React from 'react';
 
 type Props = {};
 
-const Ask = (props: Props) => {
+const Reports = (props: Props) => {
   const { data: session } = useSession();
+
   if (!session) {
     return (
       <ErrorMessage
         action={{ name: 'Sign In', func: signIn }}
-        message="Please Login to Ask Question and Get Answers from our Experts"
+        message="Please Login to see Reports"
       />
     );
   }
 
-  return <div>ask</div>;
+  return <div>Report</div>;
 };
 
-export default Ask;
+export default Reports;

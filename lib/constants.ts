@@ -12,12 +12,8 @@ const navLinks = [
     href: '/ask',
   },
   {
-    name: 'Profile',
-    href: '/profile',
-  },
-  {
-    name: 'Report',
-    href: '/report',
+    name: 'Reports',
+    href: '/reports',
   },
 ];
 
@@ -26,10 +22,6 @@ const footer = {
     {
       name: 'For Experts',
       href: '/experts',
-    },
-    {
-      name: 'Your Profile',
-      href: '/profile',
     },
   ],
   others: [

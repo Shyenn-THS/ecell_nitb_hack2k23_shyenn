@@ -1,5 +1,13 @@
+import ErrorMessage from '@/components/ErrorMessage';
+import NutrientsTable from '@/components/NutrientsTable';
+import db from '@/lib/firebase';
+import { Dish } from '@/types/typings';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React, { useState, useRef, useEffect, RefObject } from 'react';
+import toast from 'react-hot-toast';
+import PieChart from '../components/Charts/PieChart';
 
 const AddImage = () => {
   const videoRef = useRef<HTMLVideoElement>();
@@ -9,7 +17,9 @@ const AddImage = () => {
   const [image, setImage] = useState<File>();
   const [preview, setPreview] = useState<string | undefined>();
   const hiddenFileInput = useRef<RefObject<HTMLInputElement>>();
-  const [dishName, setDishName] = useState<string>();
+  const [dish, setDish] = useState<Dish>();
+  const [processing, setProcessing] = useState<boolean>(false);
+  const { data: session } = useSession();
 
   const handleClick = () => {
     hiddenFileInput?.current.click();
@@ -81,8 +91,11 @@ const AddImage = () => {
       return;
     }
 
+    setProcessing(true);
+
     const formData = new FormData();
     formData.append('image', image);
+    let dishName = '';
 
     try {
       await fetch('http://localhost:5000/identify', {
@@ -91,39 +104,67 @@ const AddImage = () => {
       })
         .then((res) => res.json())
         .then((data) => {
-          setDishName(data.dish);
+          dishName = data.dish;
         });
     } catch (error) {
       console.error('Error sending image', error);
+    } finally {
+      setProcessing(false);
+    }
+
+    try {
+      const q = query(collection(db, 'food'), where('name', '==', 'Chickpeas'));
+      const querySnapshot = await getDocs(q);
+      const dishSnap = querySnapshot.docs[0];
+
+      console.log(querySnapshot, dishName);
+
+      if (dishSnap) {
+        setDish(dishSnap.data());
+      } else {
+        // doc.data() will be undefined in this case
+        toast.error('Something Went Wrong!');
+      }
+    } catch (error: any) {
+      toast.error(error.message);
+    } finally {
+      setProcessing(false);
     }
   };
+
+  if (!session) {
+    return (
+      <ErrorMessage
+        action={{ name: 'Sign In', func: signIn }}
+        message="Please Login to Add Food Intake"
+      />
+    );
+  }
 
   return (
     <main>
       <div className="flex items-center">
-        <div className="px-10">
-          {hasCamera ? (
-            <video
-              ref={videoRef}
-              style={{
-                width: 700,
-                height: 700,
-              }}
-              controls={false}
-              autoPlay={true}
-              loop={true}
-              src="/assets/mp4/food.mp4"
-            />
-          ) : null}
+        <div className="px-10 w-1/2">
+          <video
+            ref={videoRef}
+            style={{
+              width: 700,
+              height: 700,
+            }}
+            controls={false}
+            muted
+            autoPlay={true}
+            loop={true}
+            src="/assets/mp4/food.mp4"
+          />
         </div>
-        <div className="px-10 flex flex-col justify-center items-center ">
+        <div className="px-10 flex flex-col justify-center items-center w-1/2">
           <div className="w-full relative h-96 ">
             <Image
               fill
               src={preview ? preview : '/assets/svg/Add Food.svg'}
               alt="Captured from webcam"
-              className="cursor-pointer object-cover"
-              onClick={handleClick}
+              className="object-cover"
             />
           </div>
           <input
@@ -155,8 +196,9 @@ const AddImage = () => {
             </button>
             {preview && (
               <button
-                className="btn btn-success whitespace-nowrap"
+                className="btn btn-success whitespace-nowrap disabled:animate-pulse disabled:bg-opacity-70 disabled:cursor-not-allowed"
                 onClick={sendImage}
+                disabled={processing}
               >
                 Submit
               </button>
@@ -165,16 +207,50 @@ const AddImage = () => {
 
           <button
             className="btn btn-warning w-full whitespace-nowrap"
-            onClick={sendImage}
+            onClick={handleClick}
           >
             Or Upload Image
           </button>
         </div>
       </div>
 
-      <section>
-        <h2 className="text-2xl font-semibold">Dish Name: {dishName}</h2>
-      </section>
+      {dish ? (
+        <section className="p-10 space-y-4">
+          <h1 className="text-4xl text-center text-semibold">Item Details</h1>
+          <div className="p-6 space-y-8">
+            <h2 className="text-2xl font-medium">
+              Dish Name:{' '}
+              <span className="font-light text-green-900">{dish.name}</span>
+            </h2>
+            <div className="grid grid-cols-4 gap-x-6 gap-y-4">
+              <div className="flex flex-col justify-center items-center space-y-4">
+                <PieChart lable="Calories" ci={dish?.calories} ri={8} />
+                <h4>Calories</h4>
+              </div>
+              <div className="flex flex-col justify-center items-center space-y-4">
+                <PieChart
+                  lable="Carbohydrate"
+                  ci={dish?.carbohydrates}
+                  ri={8}
+                />
+                <h4>Carbohydrate</h4>
+              </div>
+              <div className="flex flex-col justify-center items-center space-y-4">
+                <PieChart lable="Fat" ci={dish?.fat} ri={8} />
+                <h4>Fat</h4>
+              </div>
+              <div className="flex flex-col justify-center items-center space-y-4">
+                <PieChart lable="Proteins" ci={dish?.proteins} ri={8} />
+                <h4>Proteins</h4>
+              </div>
+            </div>
+          </div>
+          <div className="p-6 space-y-8">
+            <h2 className="text-2xl font-medium">Other Nutrients:</h2>
+            <NutrientsTable data={dish?.nutrients} />
+          </div>
+        </section>
+      ) : null}
     </main>
   );
 };
