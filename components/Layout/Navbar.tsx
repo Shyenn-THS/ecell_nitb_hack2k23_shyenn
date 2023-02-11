@@ -62,7 +62,7 @@ const Navbar = (props: Props) => {
               const { name, href } = link;
               return (
                 <Link
-                  className="flex items-center px-4 -mb-1 border-b-2 dark:border-transparent dark:text-green-400 dark:border-green-400"
+                  className="flex items-center px-4 -mb-1 dark:border-transparent dark:text-green-400"
                   key={idx}
                   href={href}
                 >
@@ -71,7 +71,7 @@ const Navbar = (props: Props) => {
               );
             })}
           </ul>
-          <div className="items-center lg:space-x-4 flex-shrink-0 hidden lg:flex">
+          <div className="items-center lg:space-x-6 flex-shrink-0 hidden lg:flex">
             {dark ? (
               <BsFillSunFill
                 className="text-lg"

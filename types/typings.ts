@@ -5,11 +5,9 @@ export type UserDetails = {
   image: string;
   profession: string;
   bio: string;
+  age: string;
   username: string;
-  website: string;
-  instagram: string;
-  linkedin: string;
-  twitter: string;
+  gender: string;
 };
 
 export type ModalContent = {

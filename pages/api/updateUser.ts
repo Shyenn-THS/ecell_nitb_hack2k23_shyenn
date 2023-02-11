@@ -17,9 +17,18 @@ export default async function handler(
   req: ExtendedNextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  const { email, fname, image, lname, username } = req.body;
+  const { email, fname, image, lname, username, age, gender, bio } = req.body;
 
-  if (!email || !fname || !lname || !image || !username) {
+  if (
+    !email ||
+    !fname ||
+    !lname ||
+    !image ||
+    !username ||
+    !age ||
+    !gender ||
+    !bio
+  ) {
     res.status(400).send({ success: false, error: 'Incorrect data provided' });
   }
 

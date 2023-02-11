@@ -34,10 +34,8 @@ export const authOptions = {
           profession: '',
           bio: '',
           username: uuidv4(),
-          website: '',
-          instagram: '',
-          linkedin: '',
-          twitter: '',
+          age: 0,
+          gender: '',
         };
 
         await setDoc(doc(db, 'users', email), newUser);

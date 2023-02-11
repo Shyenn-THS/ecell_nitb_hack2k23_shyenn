@@ -23,8 +23,10 @@ n_classes = 101
 img_width, img_height = 299, 299
 train_data_dir = 'food-101/train'
 validation_data_dir = 'food-101/test'
-nb_train_samples = 75750
-nb_validation_samples = 25250
+# nb_train_samples = 75750
+nb_train_samples = 7500
+# nb_validation_samples = 25250
+nb_validation_samples = 2500
 batch_size = 20
 
 train_datagen = ImageDataGenerator(
