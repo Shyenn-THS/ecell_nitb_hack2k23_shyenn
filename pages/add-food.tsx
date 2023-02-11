@@ -1,8 +1,19 @@
 import ErrorMessage from '@/components/ErrorMessage';
 import NutrientsTable from '@/components/NutrientsTable';
 import db from '@/lib/firebase';
+import { uploadToCloudinary } from '@/lib/uploadImage';
 import { Dish } from '@/types/typings';
-import { collection, getDocs, query, where } from 'firebase/firestore';
+import {
+  addDoc,
+  arrayUnion,
+  collection,
+  doc,
+  getDocs,
+  query,
+  setDoc,
+  updateDoc,
+  where,
+} from 'firebase/firestore';
 import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
 import React, { useState, useRef, useEffect, RefObject } from 'react';
@@ -96,6 +107,7 @@ const AddImage = () => {
     const formData = new FormData();
     formData.append('image', image);
     let dishName = '';
+    let dishImageUrl = await uploadToCloudinary(image!);
 
     try {
       await fetch('http://localhost:5000/identify', {
@@ -117,14 +129,24 @@ const AddImage = () => {
       const querySnapshot = await getDocs(q);
       const dishSnap = querySnapshot.docs[0];
 
-      console.log(querySnapshot, dishName);
-
       if (dishSnap) {
         setDish(dishSnap.data());
       } else {
         // doc.data() will be undefined in this case
         toast.error('Something Went Wrong!');
       }
+
+      const itemReportId = await addDoc(collection(db, 'itemReport'), {
+        ...dishSnap.data(),
+        image: dishImageUrl,
+      });
+
+      const userRef = doc(db, 'users', session?.user.email);
+      await updateDoc(userRef, {
+        foodIntakeHistory: arrayUnion(itemReportId),
+      });
+
+      toast.success('Sucessfuly made report for Item.');
     } catch (error: any) {
       toast.error(error.message);
     } finally {

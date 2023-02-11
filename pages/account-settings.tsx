@@ -6,7 +6,6 @@ import { useForm } from 'react-hook-form';
 import { signIn, useSession } from 'next-auth/react';
 import { uploadToCloudinary } from '@/lib/uploadImage';
 import { toast } from 'react-hot-toast';
-import axios from 'axios';
 
 type Props = {};
 
@@ -35,14 +34,24 @@ const Profile = (props: Props) => {
     }
   }
 
-  // if (!session) {
-  //   return (
-  //     <ErrorMessage
-  //       message="Please Login To Continue"
-  //       action={{ name: 'Login', func: signIn }}
-  //     />
-  //   );
-  // }
+  useEffect(() => {
+    setValue('fname', session?.user.fname);
+    setValue('lname', session?.user.lname);
+    setValue('bio', session?.user.bio);
+    setValue('gender', session?.user.gender);
+    setValue('age', session?.user.age);
+    setValue('email', session?.user.email);
+    setPreview(session?.user.image);
+  }, [session]);
+
+  if (!session) {
+    return (
+      <ErrorMessage
+        message="Please Login To Continue"
+        action={{ name: 'Login', func: signIn }}
+      />
+    );
+  }
 
   const onSubmit = async (data: UserDetails) => {
     const dataToSend = {
@@ -51,22 +60,26 @@ const Profile = (props: Props) => {
       email: session?.user?.email,
       username: session?.user?.username,
     };
-    const res = await axios.post('/api/updateUser', dataToSend);
-    if (res.status === 200) {
-      toast.success('Profile Updated Sucessfully!');
-    } else {
-      toast.error(res.data.error);
+
+    try {
+      const response = await fetch('/api/updateUser', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(dataToSend),
+      });
+
+      if (response.status === 200) {
+        toast.success('Profile Updated Sucessfully!');
+      } else {
+        const data = await response.json();
+        toast.error(data.error);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
-
-  useEffect(() => {
-    setValue('fname', session?.user.fname);
-    setValue('lname', session?.user.lname);
-    setValue('bio', session?.user.bio);
-    setValue('gender', session?.user.gender);
-    setValue('age', session?.user.age);
-    setPreview(session?.user.image);
-  }, [session]);
 
   return (
     <main>
@@ -110,7 +123,7 @@ const Profile = (props: Props) => {
                   Email
                 </label>
                 <input
-                  type="email"
+                  {...register('email')}
                   disabled
                   placeholder="Email"
                   className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-green-400 dark:border-gray-700 dark:text-gray-900 px-4 py-2"
