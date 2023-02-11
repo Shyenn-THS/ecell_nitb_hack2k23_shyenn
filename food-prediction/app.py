@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify, redirect
 from flask_cors import CORS
+from Prediction_food_images import predict_dish
 
 app = Flask(__name__)
 CORS(app, origins=[
@@ -16,10 +17,8 @@ def detectGender():
 
     photo = request.files["image"]
 
-    print(photo)
-    
-    gender = "Male"
-    return jsonify({"gender": gender})
+    dish = predict_dish(photo)
+    return jsonify({"dish": dish})
 
 if __name__ == '__main__':
     # app.run(host="0.0.0.0", port=80)
