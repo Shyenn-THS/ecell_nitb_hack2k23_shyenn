@@ -100,9 +100,13 @@ The Food Recall & Nutrition App is a comprehensive tool that helps users stay in
 
 ## The Team
 
-- [@Tanishq Chaturvedi](https://www.linkedin.com/in/m99tanishq/) 
-- [@Harsh Soni](https://www.linkedin.com/in/hashprog) 
-- [@Shivang Mishra](https://www.linkedin.com/in/shivangm24/)
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Wolf.png" alt="Wolf" width="40" height="40" align="left" /> [@Tanishq Chaturvedi](https://www.linkedin.com/in/m99tanishq/) 
+<br> <br>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Lion.png" alt="Lion" width="40" height="40" align="left" /> [@Harsh Soni](https://www.linkedin.com/in/hashprog) 
+<br><br>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Tiger%20Face.png" alt="Tiger Face" width="40" height="40" align="left" /> [@Shivang Mishra](https://www.linkedin.com/in/shivangm24/)
+
+<br><br>
 
 
 <h2 align="center">Thanking You
