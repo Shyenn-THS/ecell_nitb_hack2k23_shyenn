@@ -20,8 +20,7 @@ const Hero = (props: Props) => {
         </div>
         <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
           <h1 className="text-5xl font-bold leading-none sm:text-6xl">
-            Get insights of what you{' '}
-            <span className="dark:text-green-400">Eat</span>
+            Get insights of what you <span className="text-green-900">Eat</span>
           </h1>
           <p className="mt-6 mb-8 text-lg sm:mb-12">
             Add item what you eat daily and analyze them.
@@ -33,7 +32,7 @@ const Hero = (props: Props) => {
               href="/add-food"
               className="px-8 py-3 text-lg font-semibold rounded dark:bg-green-400 dark:text-gray-900"
             >
-              Add Food Intake
+              Add Food
             </Link>
             <Link
               href="/ask"

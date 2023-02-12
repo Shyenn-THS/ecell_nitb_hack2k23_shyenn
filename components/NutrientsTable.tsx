@@ -13,6 +13,13 @@ type RowProps = {
 const NutrientsTable = (props: Props) => {
   const { data } = props;
 
+  const ordered = Object.keys(data)
+    .sort()
+    .reduce((obj, key) => {
+      obj[key] = data[key];
+      return obj;
+    }, {});
+
   const TableRow = (rowProps: RowProps) => {
     const { health, iq, name, rq } = rowProps;
     return (
@@ -46,7 +53,7 @@ const NutrientsTable = (props: Props) => {
             </tr>
           </thead>
           <tbody>
-            {Object.keys(data).map(function (key, index) {
+            {Object.keys(ordered).map(function (key, index) {
               return (
                 <TableRow
                   health="Good"

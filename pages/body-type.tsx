@@ -1,4 +1,5 @@
 import ErrorMessage from '@/components/ErrorMessage';
+import { charecteristics } from '@/data/charecteristics';
 import { UserDetails } from '@/types/typings';
 import { signIn, useSession } from 'next-auth/react';
 import React, { useEffect } from 'react';
@@ -64,27 +65,38 @@ const BodyType = (props: Props) => {
                 your ayurvedic body type.
               </p>
             </div>
-            <form className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
-              <div className="col-span-full sm:col-span-3">
-                <label htmlFor="firstname" className="text-sm">
-                  First name
-                </label>
-                <select {...register('fname')}>
-                  <option value=""></option>
-                  <option value=""></option>
-                  <option value=""></option>
-                </select>
-              </div>
-              <div className="col-span-full sm:col-span-3">
-                <label htmlFor="lastname" className="text-sm">
-                  Last name
-                </label>
-                <select {...register('fname')}>
-                  <option value=""></option>
-                  <option value=""></option>
-                  <option value=""></option>
-                </select>
-              </div>
+            <form className="grid grid-cols-2 gap-4 col-span-full lg:col-span-3">
+              {Object.keys(charecteristics).map((key, idx) => {
+                return (
+                  <div
+                    key={idx}
+                    className="col-span-full flex items-center justify-between"
+                  >
+                    <label htmlFor="firstname" className="text-sm space-x-2">
+                      {key.split('_').map((val, idx) => {
+                        return <span key={idx}>{val.toUpperCase()}</span>;
+                      })}
+                    </label>
+                    <select
+                      className="w-80 px-4 py-2"
+                      key={idx}
+                      {...register(key)}
+                    >
+                      {charecteristics[key].map((opt, idx) => {
+                        return (
+                          <option
+                            className=""
+                            key={idx}
+                            value={idx === 0 ? 'v' : idx === 1 ? 'p' : 'k'}
+                          >
+                            {opt}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </div>
+                );
+              })}
             </form>
           </fieldset>
 
