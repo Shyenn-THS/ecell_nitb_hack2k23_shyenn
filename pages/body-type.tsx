@@ -17,18 +17,6 @@ const BodyType = (props: Props) => {
 
   const { data: session } = useSession();
 
-  const handleClick = () => {
-    hiddenFileInput.current.click();
-  };
-
-  function handleChange(e: ChangeEvent<HTMLInputElement>) {
-    const file = (e.target as HTMLInputElement).files?.[0];
-    if (file) {
-      setPreview(URL.createObjectURL(file));
-      setImage(file);
-    }
-  }
-
   //   useEffect(() => {
   //     setValue('fname', session?.user.fname);
   //     setValue('lname', session?.user.lname);
@@ -49,11 +37,11 @@ const BodyType = (props: Props) => {
   }
 
   const onSubmit = async (data: UserDetails) => {
-    const dataToSend = {
-      ...data,
-      email: session?.user?.email,
-      username: session?.user?.username,
-    };
+    // const dataToSend = {
+    //   ...data,
+    //   email: session?.user?.email,
+    //   username: session?.user?.username,
+    // };
 
     try {
     } catch (error) {
@@ -70,51 +58,39 @@ const BodyType = (props: Props) => {
         >
           <fieldset className="grid grid-cols-4 gap-6 p-6 rounded-md shadow-sm dark:bg-gray-900">
             <div className="space-y-2 col-span-full lg:col-span-1">
-              <p className="font-medium">Personal Inormation</p>
+              <p className="font-medium">Personal Charecteristics</p>
               <p className="text-xs">
-                Add or update your personal information.
+                Fill your personal charecteristics that will help us identify
+                your ayurvedic body type.
               </p>
             </div>
-            <div className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
+            <form className="grid grid-cols-6 gap-4 col-span-full lg:col-span-3">
               <div className="col-span-full sm:col-span-3">
                 <label htmlFor="firstname" className="text-sm">
                   First name
                 </label>
-                <input
-                  {...register('fname')}
-                  type="text"
-                  placeholder="First name"
-                  className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-green-400 dark:border-gray-700 dark:text-gray-900 px-4 py-2"
-                />
+                <select {...register('fname')}>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                </select>
               </div>
               <div className="col-span-full sm:col-span-3">
                 <label htmlFor="lastname" className="text-sm">
                   Last name
                 </label>
-                <input
-                  {...register('lname')}
-                  type="text"
-                  placeholder="Last name"
-                  className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-green-400 dark:border-gray-700 dark:text-gray-900 px-4 py-2"
-                />
+                <select {...register('fname')}>
+                  <option value=""></option>
+                  <option value=""></option>
+                  <option value=""></option>
+                </select>
               </div>
-              <div className="col-span-full sm:col-span-3">
-                <label htmlFor="email" className="text-sm">
-                  Email
-                </label>
-                <input
-                  {...register('email')}
-                  disabled
-                  placeholder="Email"
-                  className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-green-400 dark:border-gray-700 dark:text-gray-900 px-4 py-2"
-                />
-              </div>
-            </div>
+            </form>
           </fieldset>
 
           <button
             type="submit"
-            className="px-8 py-3 font-semibold rounded dark:bg-gray-100 dark:text-gray-800 w-fit mx-auto"
+            className="px-8 py-3 bg-gradient-to-tr from-gray-500 to-gray-200 shadow-lg font-semibold rounded dark:bg-gray-100 dark:text-gray-800 w-fit mx-auto"
           >
             Submit
           </button>

@@ -48,20 +48,24 @@ const ItemModal = (props: Props) => {
             </h2>
             <div className="grid grid-cols-2 gap-x-6 gap-y-4">
               <div className="flex flex-col justify-center items-center space-y-4">
-                <PieChart lable="Calories" ci={calories} ri={8} />
-                <h4>Calories</h4>
+                <PieChart lable="Calories" ci={calories * 100} ri={2500} />
+                <h4>Calories : {calories * 100}Kcal</h4>
               </div>
               <div className="flex flex-col justify-center items-center space-y-4">
-                <PieChart lable="Carbohydrate" ci={carbohydrates} ri={8} />
-                <h4>Carbohydrate</h4>
+                <PieChart
+                  lable="Carbohydrate"
+                  ci={carbohydrates / 10000}
+                  ri={325}
+                />
+                <h4>Carbohydrate : {carbohydrates / 10000}gm</h4>
               </div>
               <div className="flex flex-col justify-center items-center space-y-4">
                 <PieChart lable="Fat" ci={fat} ri={8} />
-                <h4>Fat</h4>
+                <h4>Fat : {fat / 10000}gm</h4>
               </div>
               <div className="flex flex-col justify-center items-center space-y-4">
-                <PieChart lable="Proteins" ci={proteins} ri={8} />
-                <h4>Proteins</h4>
+                <PieChart lable="Proteins" ci={proteins / 10000} ri={8} />
+                <h4>Proteins: {proteins / 10000}Kcal</h4>
               </div>
             </div>
           </div>
