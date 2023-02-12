@@ -54,11 +54,13 @@ The Food Recall & Nutrition App is a comprehensive tool that helps users stay in
 ### Version Control
  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp;  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" height="100" width="100" /> 
 
+<!--
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png" alt="Television" width="50" height="50" align="left" />
 
 ## Powerpoint Presentation
 
-### --> Link Here <--
+### Link Here
+-->
 
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Teacher%20Medium-Light%20Skin%20Tone.png" alt="Teacher Medium-Light Skin Tone" width="50" height="50" align="left" />
 
