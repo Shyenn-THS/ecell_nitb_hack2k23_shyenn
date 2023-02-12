@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import { Toaster } from 'react-hot-toast';
 import { SessionProvider } from 'next-auth/react';
 import { UIProvider } from '@/context/UIContext';
+import ItemModal from '@/components/ItemModal';
 
 export default function App({
   Component,
@@ -13,6 +14,7 @@ export default function App({
     <SessionProvider session={session}>
       <UIProvider>
         <Layout>
+          <ItemModal />
           <Component {...pageProps} />
         </Layout>
       </UIProvider>

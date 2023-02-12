@@ -56,3 +56,14 @@ export type UserCharacteristics = {
   featured_traits: string;
   email: string;
 };
+
+export type FoodItem = {
+  image: string;
+  name: string;
+  calories: number;
+  carbohydrates: number;
+  fat: number;
+  proteins: number;
+  nutrients: any;
+  date: string;
+};

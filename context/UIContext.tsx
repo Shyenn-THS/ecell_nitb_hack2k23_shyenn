@@ -1,4 +1,4 @@
-import { ModalContent } from '@/types/typings';
+import { FoodItem, ModalContent } from '@/types/typings';
 import Cookies from 'js-cookie';
 import { createContext, useReducer, Reducer } from 'react';
 
@@ -6,7 +6,7 @@ type StoreStateType = {
   darkMode: boolean;
   openDrawer: boolean;
   openModal: boolean;
-  modalContent: ModalContent;
+  modalContent: FoodItem;
 };
 
 type StoreActionsType = {

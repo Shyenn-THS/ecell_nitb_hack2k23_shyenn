@@ -3,21 +3,12 @@ import db from '@/lib/firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { signIn, useSession } from 'next-auth/react';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import moment from 'moment';
+import { UIContext } from '@/context/UIContext';
+import { FoodItem } from '@/types/typings';
 
 type Props = {};
-
-type FoodItem = {
-  image: string;
-  name: string;
-  calories: number;
-  carbohydrates: number;
-  fat: number;
-  proteins: number;
-  nutrients: any;
-  date: string;
-};
 
 type TimelineDayProps = {
   date: string;
@@ -26,8 +17,16 @@ type TimelineDayProps = {
 
 const TimelineCard = ({ item }: { item: FoodItem }) => {
   const { image, name, calories, fat, proteins, nutrients, date } = item;
+  const { dispatch } = useContext(UIContext);
+
+  const handleModal = () => {
+    dispatch({ type: 'OPEN_MODAL', payload: item });
+  };
   return (
-    <div className="flex flex-col cursor-pointer sm:relative items-center text-center justify-center max-w-sm before:dark:bg-green-400">
+    <div
+      onClick={handleModal}
+      className="flex flex-col cursor-pointer sm:relative items-center text-center justify-center max-w-sm before:dark:bg-green-400"
+    >
       <div className="w-40 h-40 relative">
         <Image src={image} alt={name} fill className="object-cover" />
       </div>
