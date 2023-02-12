@@ -13,7 +13,7 @@
 ## Live at: 
 
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Telescope.png" alt="Telescope" width="70" height="70" align="right" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Telescope.png" alt="Telescope" width="80" height="80" align="right" />
 
 ## Overview
 The Food Recall & Nutrition App is a comprehensive tool that helps users stay informed about food recalls, determine the calorie count and nutritional values of food items, and receive food suggestions based on their Ayurvedic body type. The app features notifications, recall information, and recommendations provided by certified dieticians.
