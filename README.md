@@ -8,17 +8,17 @@
 
 #### A comprehensive and user-friendly app for monitoring food recalls and receiving personalized nutrition recommendations based on your Ayurvedic prakriti Dosha (Vata, Pitta, Kapha) and macro-nutrient needs. Experience the fusion of ancient wisdom and modern science for optimal health and wellness 
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Video Game" width="70" height="70" align="right" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Video Game" width="50" height="50" align="left" />
 
 ## Live at: 
 
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Telescope.png" alt="Telescope" width="80" height="80" align="right" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Telescope.png" alt="Telescope" width="50" height="50" align="left" />
 
 ## Overview
 The Food Recall & Nutrition App is a comprehensive tool that helps users stay informed about food recalls, determine the calorie count and nutritional values of food items, and receive food suggestions based on their Ayurvedic body type. The app features notifications, recall information, and recommendations provided by certified dieticians.
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Magic%20Wand.png" alt="Magic Wand" width="80" height="80" align="right" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Magic%20Wand.png" alt="Magic Wand" width="50" height="50" align="left" />
 
 ## Features 
 
@@ -27,8 +27,7 @@ The Food Recall & Nutrition App is a comprehensive tool that helps users stay in
 -   Take a simple test to determine your body type as per Ayurvedic prakriti
 -   Recommendations provided by certified dieticians
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Chequered%20Flag.png" alt="Chequered Flag" width="60" height="60" align="right" />
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Helicopter.png" alt="Helicopter" width="60" height="60" align="right" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Helicopter.png" alt="Helicopter" width="50" height="50" align="left" />
 
 ## Getting Started
 
@@ -38,7 +37,7 @@ The Food Recall & Nutrition App is a comprehensive tool that helps users stay in
 4.  Click photo of food items you consume and determine their calorie count, nutritional values and effect on tri-dosha.
 5.  Get food suggestions based on your body type.
 
-## Technology Used <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Man%20Technologist%20Light%20Skin%20Tone.png" alt="Man Technologist Light Skin Tone" width="80" height="80" align="right" />
+## Technology Used <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Man%20Technologist%20Light%20Skin%20Tone.png" alt="Man Technologist Light Skin Tone" width="50" height="50" align="left" />
 
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Spider.png" alt="Spider" width="40" height="40" align="left" />
 
@@ -55,13 +54,13 @@ The Food Recall & Nutrition App is a comprehensive tool that helps users stay in
 ### Version Control
  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp;  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" height="100" width="100" /> 
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png" alt="Television" width="80" height="80" align="right" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png" alt="Television" width="50" height="50" align="left" />
 
 ## Powerpoint Presentation
 
 ### --> Link Here <--
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Teacher%20Medium-Light%20Skin%20Tone.png" alt="Teacher Medium-Light Skin Tone" width="80" height="80" align="right" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Teacher%20Medium-Light%20Skin%20Tone.png" alt="Teacher Medium-Light Skin Tone" width="50" height="50" align="left" />
 
 ## Topic Enrichment
 <details>
@@ -96,7 +95,7 @@ The Food Recall & Nutrition App is a comprehensive tool that helps users stay in
 <img src="https://ayurvedapractice.com/wp-content/uploads/2015/11/Daily-dosha-timings-and-actions-1024x749.png" height="500" width="500" />
 </details>
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Men%20with%20Bunny%20Ears.png" alt="Men with Bunny Ears" width="80" height="80" align="right" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Men%20with%20Bunny%20Ears.png" alt="Men with Bunny Ears" width="50" height="50" align="left" />
 
 ## The Team
 
