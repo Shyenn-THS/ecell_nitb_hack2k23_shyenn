@@ -1,38 +1,124 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Om.png" alt="Om" width="35" height="35" /> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Trident%20Emblem.png" alt="Trident Emblem" align="right" width="35" height="35" />
+
+<p align = "center"> <b> व्यायामात् लभते स्वास्थ्यं दीर्घायुष्यं बलं सुखं। </b><br>
+<b> <mark>आरोग्यं परमं भाग्यं </mark> स्वास्थ्यं सर्वार्थसाधनम्॥ </b></p>
+
+
+# VedaFit by [Shyenn](https://github.com/Shyenn-THS) <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Eagle.png" alt="Eagle" width="80" height="80" align="bottom" />
+
+#### A comprehensive and user-friendly app for monitoring food recalls and receiving personalized nutrition recommendations based on your Ayurvedic prakriti Dosha (Vata, Pitta, Kapha) and macro-nutrient needs. Experience the fusion of ancient wisdom and modern science for optimal health and wellness 
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Video%20Game.png" alt="Video Game" width="70" height="70" align="right" />
+
+## Live at: 
+
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Telescope.png" alt="Telescope" width="70" height="70" align="right" />
+
+## Overview
+The Food Recall & Nutrition App is a comprehensive tool that helps users stay informed about food recalls, determine the calorie count and nutritional values of food items, and receive food suggestions based on their Ayurvedic body type. The app features notifications, recall information, and recommendations provided by certified dieticians.
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Activities/Magic%20Wand.png" alt="Magic Wand" width="80" height="80" align="right" />
+
+## Features 
+
+-   Determine calorie count and nutritional values of food item
+-   Get food suggestions based on suitable body type (prakriti) to maintain balance in tri-dosha
+-   Take a simple test to determine your body type as per Ayurvedic prakriti
+-   Recommendations provided by certified dieticians
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Chequered%20Flag.png" alt="Chequered Flag" width="60" height="60" align="right" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Helicopter.png" alt="Helicopter" width="60" height="60" align="right" />
 
 ## Getting Started
 
-First, run the development server:
+1.  Visit ```<website address>```
+2.  Create an account (or log in if you already have an account).
+3.  Start by taking the simple Ayurvedic body type test to determine your prakriti.
+4.  Click photo of food items you consume and determine their calorie count, nutritional values and effect on tri-dosha.
+5.  Get food suggestions based on your body type.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+## Technology Used <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Man%20Technologist%20Light%20Skin%20Tone.png" alt="Man Technologist Light Skin Tone" width="80" height="80" align="right" />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Animals/Spider.png" alt="Spider" width="40" height="40" align="left" />
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Web Development 
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp;   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp;  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; 
+ 
+ <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Locomotive.png" alt="Whale" width="40" height="40" align="left" />
+ 
+### Machine Learning 
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original-wordmark.svg" height="100" width="100" />  &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp; <img src="https://upload.wikimedia.org/wikipedia/en/d/d9/Dlib_c%2B%2B_library_logo.png" height="100" width="100" /> 
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Building%20Construction.png" alt="Building Construction" width="40" height="40" align="left" />
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Version Control
+ <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg" height="100" width="100" /> &nbsp; &nbsp; &nbsp; &nbsp;  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" height="100" width="100" /> 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png" alt="Television" width="80" height="80" align="right" />
 
-## Learn More
+## Powerpoint Presentation
 
-To learn more about Next.js, take a look at the following resources:
+### --> Link Here <--
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20professions/Teacher%20Medium-Light%20Skin%20Tone.png" alt="Teacher Medium-Light Skin Tone" width="80" height="80" align="right" />
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Topic Enrichment
+<details>
+  <summary>About Tri Dosha</summary>
+  <p>
+    <details>
+  <summary>Vataj</summary>
+  <p>
+    &emsp; &ensp; &#8195; &#8194; Vata dosha represents movement and is associated with the elements of air and ether. People with a predominant Vata constitution tend to be creative, lively, and quick-witted, but may also experience feelings of anxiety and be prone to exhaustion.
+  </p>
+</details>
+    <details>
+  <summary>Pittaj</summary>
+  <p>
+    &emsp; &ensp; &#8195; &#8194; Pitta dosha represents metabolism and is associated with the elements of fire and water. People with a predominant Pitta constitution tend to be intense, ambitious, and confident, but may also experience anger and irritability.
+  </p>
+</details>
+    <details>
+  <summary>Kaphaj</summary>
+  <p>
+    &emsp; &ensp; &#8195; &#8194; Kapha dosha represents structure and stability and is associated with the elements of earth and water. People with a predominant Kapha constitution tend to be calm, grounded, and supportive, but may also experience feelings of boredom and sluggishness.
+  </p>
+</details> <hr>
+  </p>
+</details>
 
-## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+<details>
+  <summary>Facts and Figures</summary>
+<img src="https://i0.wp.com/sunshineayurveda.com.au/wp-content/uploads/2020/06/Five-Elements.jpg?fit=1024%2C1024&ssl=1" height="500" width="500"/>
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<img src="https://ayurvedapractice.com/wp-content/uploads/2015/11/Daily-dosha-timings-and-actions-1024x749.png" height="500" width="500" />
+</details>
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Men%20with%20Bunny%20Ears.png" alt="Men with Bunny Ears" width="80" height="80" align="right" />
+
+## The Team
+
+- [@Tanishq Chaturvedi](https://www.linkedin.com/in/m99tanishq/) 
+- [@Harsh Soni](https://www.linkedin.com/in/hashprog) 
+- [@Shivang Mishra](https://www.linkedin.com/in/shivangm24/)
+
+
+<h2 align="center">Thanking You
+<h3 align="center">Made with <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Beating%20Heart.png" alt="❤" width="35" height="35" align="center" /> by Team Shyenn
+
+---
+<p align="center">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Man%20Running.png" alt="Man Running" width="50" height="50" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Person%20Rowing%20Boat.png" alt="Person Rowing Boat" width="50" height="50" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Person%20Swimming.png" alt="Person Swimming" width="50" height="50" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Person%20Mountain%20Biking.png" alt="Person Mountain Biking" width="50" height="50" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Person%20Climbing.png" alt="Person Climbing" width="50" height="50" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20activities/Woman%20Bouncing%20Ball%20Light%20Skin%20Tone.png" alt="Woman Bouncing Ball Light Skin Tone" width="50" height="50" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Person%20Lifting%20Weights.png" alt="Person Lifting Weights" width="50" height="50" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20activities/Snowboarder%20Medium%20Skin%20Tone.png" alt="Snowboarder Medium Skin Tone" width="50" height="50" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People%20with%20activities/Man%20Golfing%20Medium-Light%20Skin%20Tone.png" alt="Man Golfing Medium-Light Skin Tone" width="50" height="50" />
+</p>
+
+---
