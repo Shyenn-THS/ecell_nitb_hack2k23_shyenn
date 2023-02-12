@@ -219,33 +219,33 @@ const AddImage = () => {
       </div>
 
       {dish ? (
-        <section className="p-10 space-y-4">
-          <h1 className="text-4xl text-center text-semibold">Item Details</h1>
+        <section className="p-10 py-20 space-y-4">
+          <h1 className="text-4xl text-center text-semibold">{dish?.name}</h1>
           <div className="p-6 space-y-8">
-            <h2 className="text-2xl font-medium">
-              Dish Name:{' '}
-              <span className="font-light text-green-900">{dish.name}</span>
-            </h2>
             <div className="grid grid-cols-4 gap-x-6 gap-y-4">
               <div className="flex flex-col justify-center items-center space-y-4">
-                <PieChart lable="Calories" ci={dish?.calories} ri={8} />
-                <h4>Calories</h4>
+                <PieChart
+                  lable="Calories"
+                  ci={dish?.calories * 100}
+                  ri={2500}
+                />
+                <h4>Calories : {dish?.calories * 100}Kcal</h4>
               </div>
               <div className="flex flex-col justify-center items-center space-y-4">
                 <PieChart
                   lable="Carbohydrate"
-                  ci={dish?.carbohydrates}
-                  ri={8}
+                  ci={dish?.carbohydrates / 10000}
+                  ri={325}
                 />
-                <h4>Carbohydrate</h4>
+                <h4>Carbohydrate : {dish?.carbohydrates / 10000}gm</h4>
               </div>
               <div className="flex flex-col justify-center items-center space-y-4">
-                <PieChart lable="Fat" ci={dish?.fat} ri={8} />
-                <h4>Fat</h4>
+                <PieChart lable="Fat" ci={dish?.fat / 10000} ri={97} />
+                <h4>Fat : {dish?.fat / 10000}gm</h4>
               </div>
               <div className="flex flex-col justify-center items-center space-y-4">
-                <PieChart lable="Proteins" ci={dish?.proteins} ri={8} />
-                <h4>Proteins</h4>
+                <PieChart lable="Proteins" ci={dish?.proteins / 10000} ri={8} />
+                <h4>Proteins: {dish?.proteins / 10000}Kcal</h4>
               </div>
             </div>
           </div>
