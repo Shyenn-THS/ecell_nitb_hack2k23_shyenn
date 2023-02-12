@@ -84,16 +84,15 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
     let userData: UserDetails | undefined = undefined;
     const userQuery = query(
       collection(db, 'users'),
-      where('username', '==', params!.username as string)
+      where('username', '==', params!.id as string)
     );
     const userSnap = await getDocs(userQuery);
     userSnap.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
       userData = doc.data() as UserDetails;
     });
 
     // Pass data to the page via props
-    return { props: { userData } };
+    return { props: { userData: JSON.parse(JSON.stringify(userData)) } };
   } catch (error: any) {
     console.error(error.message);
     return { props: { ...error } };

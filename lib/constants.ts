@@ -15,6 +15,14 @@ const navLinks = [
     name: 'Reports',
     href: '/reports',
   },
+  {
+    name: 'Identify Body Type',
+    href: '/body-type',
+  },
+  {
+    name: 'Food Items',
+    href: '/items',
+  },
 ];
 
 const footer = {

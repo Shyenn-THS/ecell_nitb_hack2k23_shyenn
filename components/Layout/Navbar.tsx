@@ -8,6 +8,7 @@ import { UIContext } from '@/context/UIContext';
 import { BsFillSunFill, BsMoonFill } from 'react-icons/bs';
 import classNames from 'classnames';
 import { useRouter } from 'next/router';
+import { FaBars } from 'react-icons/fa';
 
 type Props = {};
 
@@ -39,19 +40,19 @@ const Navbar = (props: Props) => {
   const [selected, setSelected] = useState(0);
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <header className="p-4 dark:bg-gray-800 dark:text-gray-100">
-        <div className="container flex items-center justify-between h-16 mx-auto">
-          <Link href="/">
+        <div className="flex items-center justify-between h-16">
+          <Link href="/" className="">
             <Image
               src="/logo.svg"
               alt="Logo"
-              className="w-1/3"
-              width={500}
-              height={300}
+              className=""
+              width={150}
+              height={150}
             />
           </Link>
-          <ul className="items-stretch hidden space-x-6 lg:flex">
+          <ul className="hidden space-x-6 whitespace-nowrap lg:flex">
             {navLinks.map((link, idx) => {
               const { name, href } = link;
               return (
@@ -72,7 +73,7 @@ const Navbar = (props: Props) => {
               );
             })}
           </ul>
-          <div className="items-center lg:space-x-6 flex-shrink-0 hidden lg:flex">
+          <div className="items-center lg:space-x-6 hidden lg:flex">
             {dark ? (
               <BsFillSunFill
                 className="text-lg"
@@ -132,20 +133,7 @@ const Navbar = (props: Props) => {
             )}
           </div>
           <button className="p-4 lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              className="w-6 h-6 dark:text-gray-100"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
+            <FaBars />
           </button>
         </div>
       </header>

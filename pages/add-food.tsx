@@ -21,16 +21,19 @@ import toast from 'react-hot-toast';
 import PieChart from '../components/Charts/PieChart';
 
 const AddImage = () => {
-  const videoRef = useRef<HTMLVideoElement>();
-  const [hasCamera, setHasCamera] = useState(false);
-  const [stream, setStream] = useState<MediaStream>();
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [stream, setStream] = useState<MediaStream | null>(null);
+  const [processing, setProcessing] = useState<boolean>(false);
   const [mounted, setMounted] = useState<Boolean>(false);
   const [image, setImage] = useState<File>();
   const [preview, setPreview] = useState<string | undefined>();
   const hiddenFileInput = useRef<RefObject<HTMLInputElement>>();
   const [dish, setDish] = useState<Dish>();
-  const [processing, setProcessing] = useState<boolean>(false);
   const { data: session } = useSession();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleClick = () => {
     hiddenFileInput?.current.click();
@@ -45,45 +48,30 @@ const AddImage = () => {
   }
 
   const startStream = async () => {
-    if (!videoRef.current) return;
+    setProcessing(true);
     try {
       const mediaStream = await navigator.mediaDevices.getUserMedia({
         video: true,
         audio: false,
       });
+
       setStream(mediaStream);
-      videoRef.current.srcObject = mediaStream;
-      videoRef.current.play();
+      videoRef.current!.srcObject = mediaStream;
+      videoRef.current?.play();
     } catch (error) {
       console.error('Error accessing webcam', error);
+    } finally {
+      setProcessing(false);
     }
   };
 
-  useEffect(() => {
-    if (!hasCamera) {
-      return;
-    }
-
-    startStream();
-
-    return () => {
-      if (stream) {
-        stream.getTracks().forEach((track) => {
-          track.stop();
-        });
-      }
-    };
-  }, [hasCamera]);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const stopCapture = () => {
+  const stopStream = () => {
     if (stream) {
       stream.getTracks().forEach((track) => {
         track.stop();
       });
+
+      setStream(null);
     }
   };
 
@@ -164,58 +152,51 @@ const AddImage = () => {
     );
   }
 
+  if (!mounted) {
+    return <div className=""></div>;
+  }
+
   return (
-    <main>
-      <div className="flex items-center">
-        <div className="px-10 w-1/2">
-          <video
-            ref={videoRef}
-            style={{
-              width: 700,
-              height: 700,
-            }}
-            controls={false}
-            muted
-            autoPlay={true}
-            loop={true}
-            src="/assets/mp4/food.mp4"
-          />
+    <main className="">
+      <div className="flex items-center w-3/4 h-96 mx-auto rounded-lg shadow-xl">
+        <div className="w-1/2 bg-black h-full">
+          {stream ? (
+            <video ref={videoRef} className="w-full h-full" />
+          ) : (
+            <div className="w-full relative h-full ">
+              <Image
+                fill
+                src={preview ? preview : '/assets/svg/Add Food.svg'}
+                alt="Captured from webcam"
+                className="object-cover"
+              />
+            </div>
+          )}
         </div>
-        <div className="px-10 flex flex-col justify-center items-center w-1/2">
-          <div className="w-full relative h-96 ">
-            <Image
-              fill
-              src={preview ? preview : '/assets/svg/Add Food.svg'}
-              alt="Captured from webcam"
-              className="object-cover"
-            />
-          </div>
+        <div className="px-10 flex flex-col justify-center items-center w-1/2 bg-gradient-to-r from-gray-500 to-gray-300 h-full">
           <input
             onChange={handleChange}
             type="file"
             ref={hiddenFileInput}
             hidden
           />
-          <div className="flex items-center py-6 justify-between w-full">
+
+          <h1 className="text-2xl">Upload your daily intake</h1>
+
+          <div className="flex items-center py-6 space-x-4 w-full">
             {mounted && navigator.mediaDevices ? (
               <button
-                className="btn btn-success whitespace-nowrap"
-                onClick={() => (hasCamera ? startStream() : setHasCamera(true))}
+                className="btn bg-gray-700 whitespace-nowrap w-full"
+                onClick={!stream ? startStream : stopStream}
               >
-                Start Capture
+                {stream ? 'Stop Capture' : 'Start Capture'}
               </button>
             ) : null}
             <button
               onClick={captureImage}
-              className="btn btn-success whitespace-nowrap"
+              className="btn bg-gray-700 whitespace-nowrap w-full"
             >
               Capture Image
-            </button>
-            <button
-              onClick={stopCapture}
-              className="btn whitespace-nowrap btn-error"
-            >
-              Stop Capture
             </button>
             {preview && (
               <button
@@ -229,7 +210,7 @@ const AddImage = () => {
           </div>
 
           <button
-            className="btn btn-warning w-full whitespace-nowrap"
+            className="btn bg-gradient-to-t from-green-700 to-green-800 shadow-md w-full whitespace-nowrap"
             onClick={handleClick}
           >
             Or Upload Image

@@ -2,17 +2,40 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import db from '../../lib/firebase';
 import { setDoc, doc } from 'firebase/firestore';
-import { UserCharacteristics } from '@/types/typings';
-
-interface ExtendedNextApiRequest extends NextApiRequest {
-  body: UserCharacteristics;
-}
 
 type Data = {
-  vata: number;
-  pitta: number;
-  kapha: string;
+  body_frame: string;
+  body_build_and_musculature: string;
+  complexion: string;
+  skin: string;
+  teeth: string;
+  nails: string;
+  eyes: string;
+  lips: string;
+  hair: string;
+  weight: string;
+  movements_and_physical_activities: string;
+  tolerance_for_seasonal_weather: string;
+  disease_resistant_and_healing_capacity: string;
+  food_habits: string;
+  appetite: string;
+  digestion: string;
+  bowel_movements: string;
+  liking_towards_various_taste: string;
+  communication_speech: string;
+  capabilities_activity_level: string;
+  memory_intellectual_level: string;
+  ageing: string;
+  emotions: string;
+  sleep: string;
+  personality_strengths: string;
+  featured_traits: string;
+  email: string;
 };
+
+interface ExtendedNextApiRequest extends NextApiRequest {
+  body: Data;
+}
 
 export default async function handler(
   req: ExtendedNextApiRequest,
@@ -48,18 +71,7 @@ export default async function handler(
     email,
   } = req.body;
 
-  //   if (
-  //     !email ||
-  //     !fname ||
-  //     !lname ||
-  //     !image ||
-  //     !username ||
-  //     !age ||
-  //     !gender ||
-  //     !bio
-  //   ) {
-  //     res.status(400).send({ success: false, error: 'Incorrect data provided' });
-  //   }
+  const bodyFrame = ['', '', ''];
 
   try {
     await setDoc(doc(db, 'users_characteristics', email), req.body);

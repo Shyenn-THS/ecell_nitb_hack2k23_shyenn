@@ -9,7 +9,7 @@ type Props = {};
 const Footer = (props: Props) => {
   const { others, quickLink } = footer;
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <footer className="py-6 dark:bg-gray-800 dark:text-gray-50">
         <div className="container px-6 mx-auto space-y-6 divide-y divide-gray-400 md:space-y-12 divide-opacity-50">
           <div className="grid grid-cols-12">

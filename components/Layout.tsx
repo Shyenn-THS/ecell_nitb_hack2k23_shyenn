@@ -6,7 +6,7 @@ export default function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <Navbar />
-      <main className="pb-10">{children}</main>
+      <main className="py-10 max-w-7xl mx-auto bg-gray-600">{children}</main>
       <Footer />
     </>
   );
